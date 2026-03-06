@@ -122,7 +122,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &268150366
+--- !u!1 &259607680
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,39 +130,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 268150368}
-  - component: {fileID: 268150367}
+  - component: {fileID: 259607681}
+  - component: {fileID: 259607682}
   m_Layer: 0
-  m_Name: WebSocketServerManager
+  m_Name: PoseSimulator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &268150367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268150366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4834df6d1c30aea439ad3fb0ae39c215, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  server: {fileID: 1850997914}
-  poseJsonRaw: 
-  poseResourceName: 3DPOSE_Output
-  autoLoadPoseFromResources: 1
-  poseFps: 15
---- !u!4 &268150368
+--- !u!4 &259607681
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268150366}
+  m_GameObject: {fileID: 259607680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -171,6 +154,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 309284757}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &259607682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259607680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9aad6546a4fda847a4cb4d328f572cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  server: {fileID: 1972078737}
+  poseJsonRaw: 
+  poseResourceName: 3DPOSE_Output
+  autoLoadPoseFromResources: 1
+  poseFps: 15
 --- !u!1 &309284756
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,8 +201,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1850997915}
-  - {fileID: 268150368}
-  - {fileID: 1939229433}
+  - {fileID: 1972078738}
+  - {fileID: 259607681}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1126129868
@@ -464,7 +464,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7610327652560440474, guid: 8b9e9d12b09483d4c8906b6a7cc86887, type: 3}
   m_PrefabInstance: {fileID: 1850997913}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1939229432
+--- !u!1 &1972078736
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,22 +472,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1939229433}
-  - component: {fileID: 1939229434}
+  - component: {fileID: 1972078738}
+  - component: {fileID: 1972078737}
   m_Layer: 0
-  m_Name: RollerSimulator
+  m_Name: WebSocketServerAPI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1939229433
+--- !u!114 &1972078737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972078736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925329f0af2be7f4391592d3067619a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  server: {fileID: 1850997914}
+  OnMessageReceived:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClientConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClientDisconnected:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1972078738
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939229432}
+  m_GameObject: {fileID: 1972078736}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -496,21 +518,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 309284757}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1939229434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939229432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd45889250fc966419cb455a25709340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 268150367}
-  sendRatePerSecond: 15
-  newNoseCoordinate: {x: 0, y: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
